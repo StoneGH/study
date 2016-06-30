@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stone.study</groupId>
@@ -19,8 +20,9 @@
 		<javax.servlet.version>2.5</javax.servlet.version>
 		<javax.servletJsp.version>2.1</javax.servletJsp.version>
 		<jstl.version>1.2</jstl.version>
+		<commons-lang3.version>3.1</commons-lang3.version>
 	</properties>
-	
+
 	<dependencies>
 		<!-- Servlet -->
 		<dependency>
@@ -41,11 +43,45 @@
 			<version>${jstl.version}</version>
 		</dependency>
 		<!-- Servlet -->
+
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<!-- JSON -->
+
+		<!-- jxl -->
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+		<!-- jxl -->
+
+		<!-- util模块jar包 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<!-- http -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.2</version>
+		</dependency>
+		<!-- util模块jar包 -->
 	</dependencies>
-	
+
 	<modules>
-		<module>ace</module>
-    <module>netty</module>
-    <module>study-email</module>
-  </modules>
+		<module>study-email</module>
+		<module>study-util</module>
+	</modules>
 </project>
