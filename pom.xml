@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -23,7 +22,6 @@
 		<jstl.version>1.2</jstl.version>
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<spring.security.version>4.1.2.RELEASE</spring.security.version>
-
 		<commons-lang3.version>3.1</commons-lang3.version>
 	</properties>
 
@@ -47,7 +45,6 @@
 			<version>${jstl.version}</version>
 		</dependency>
 		<!-- Servlet & jstl for jsp page -->
-
 
 		<!-- Spring dependencies -->
 		<dependency>
@@ -81,14 +78,6 @@
 			<version>${spring.security.version}</version>
 		</dependency>
 
-	</dependencies>
-
-	<modules>
-		<module>ace</module>
-		<module>study-springsecurity</module>
-	</modules>
-		<!-- Servlet -->
-
 		<!-- JSON -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -105,7 +94,7 @@
 		</dependency>
 		<!-- jxl -->
 
-		<!-- util模块jar�?-->
+		<!-- util模块jar�?-->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -122,7 +111,7 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.3.2</version>
 		</dependency>
-		<!-- util模块jar�?-->
+		<!-- util模块jar�?-->
 	</dependencies>
 
 	<modules>
