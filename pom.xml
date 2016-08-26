@@ -21,7 +21,7 @@
 		<javax.servlet.version>2.5</javax.servlet.version>
 		<javax.servletJsp.version>2.1</javax.servletJsp.version>
 		<jstl.version>1.2</jstl.version>
-		<spring.version>4.1.6.RELEASE</spring.version>
+		<spring.version>4.2.1.RELEASE</spring.version>
 		<spring.security.version>4.1.3.RELEASE</spring.security.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
 	</properties>
@@ -119,5 +119,6 @@
 		<module>study-email</module>
 		<module>study-util</module>
 		<module>study-java</module>
+		<module>study-springsecurity</module>
 	</modules>
 </project>
