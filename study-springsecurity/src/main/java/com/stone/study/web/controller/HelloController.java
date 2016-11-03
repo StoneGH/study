@@ -26,7 +26,6 @@ public class HelloController {
 		model.addObject("title", "Spring Security Hello World");
 		model.addObject("message", "This is protected page!");
 		model.setViewName("admin");
-
 		return model;
 
 	}
