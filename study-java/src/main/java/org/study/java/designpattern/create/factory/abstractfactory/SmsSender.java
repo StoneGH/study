@@ -1,4 +1,4 @@
-package org.study.java.designpattern.factory.abstractfactory;
+package org.study.java.designpattern.create.factory.abstractfactory;
 
 public class SmsSender implements Sender {
 
