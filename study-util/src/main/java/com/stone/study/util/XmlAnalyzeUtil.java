@@ -26,9 +26,7 @@ import com.alibaba.fastjson.JSONObject;
  * 
  */
 public class XmlAnalyzeUtil {
-	public static Map<String, String> xmlAnalyze(String xml,
-			List<String> elements)
-			throws ParserConfigurationException, SAXException, IOException {
+	public static Map<String, String> xmlAnalyze(String xml, List<String> elements) throws ParserConfigurationException, SAXException, IOException {
 		Map<String, String> map = new HashMap<String, String>();
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -43,12 +41,27 @@ public class XmlAnalyzeUtil {
 			NodeList childs = element.getChildNodes();
 			for (int j = 0; j < childs.getLength(); j++) {
 				Element line = (Element) childs.item(j);
-				System.out.println(line.getNodeName() + ":"
-						+ line.getTextContent());
+				System.out.println(line.getNodeName() + ":" + line.getTextContent());
 				map.put(line.getNodeName(), line.getTextContent());
 			}
 		}
 		return map;
+	}
+
+	/**
+	 * 根据标签名获取值
+	 * 
+	 * @param xml
+	 * @param key
+	 * @return
+	 */
+	public static String getValueByTagName(String xml, String tag) {
+		String str1 = "";
+		String str2 = xml.replaceAll("</", "<");
+		String[] arrayOfString = str2.split("<" + tag + ">");
+		if (arrayOfString.length > 1)
+			str1 = arrayOfString[1];
+		return str1;
 	}
 
 	public static void main(String[] args) {
@@ -76,19 +89,20 @@ public class XmlAnalyzeUtil {
 		xml.append("<choose_number>120</choose_number>");
 		xml.append("</orderInfo>");
 		xml.append("</ResBizArgs>");
-		try {
-			List<String> elements = new ArrayList<String>();
-			elements.add("orderInfo");
-			Map<String, String> map = xmlAnalyze(xml.toString(), elements);
-			JSONObject json = new JSONObject();
-			json.put("map", map);
-			System.out.println(json.toJSONString());
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		System.out.println(getValueByTagName(xml.toString(), "choose_number"));
+		// try {
+		// List<String> elements = new ArrayList<String>();
+		// elements.add("orderInfo");
+		// Map<String, String> map = xmlAnalyze(xml.toString(), elements);
+		// JSONObject json = new JSONObject();
+		// json.put("map", map);
+		// System.out.println(json.toJSONString());
+		// } catch (ParserConfigurationException e) {
+		// e.printStackTrace();
+		// } catch (SAXException e) {
+		// e.printStackTrace();
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
 	}
 }
