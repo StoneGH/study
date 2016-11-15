@@ -1,0 +1,2 @@
+RMI(远程方法调用):能够让一个Java虚拟机上的对象像调用本地对象一样调用另一个Java虚拟机中对象的方法。
+参考地址：http://www.cnblogs.com/leslies2/archive/2011/05/20/2051844.html
