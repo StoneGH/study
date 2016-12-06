@@ -28,6 +28,7 @@
 		<module>study-dubbo-api</module>
 		<module>study-dubbo-provider</module>
     <module>study-dubbo-consumer</module>
+    <module>study-dubbox-provider</module>
   </modules>
 	<build>
 		<plugins>
