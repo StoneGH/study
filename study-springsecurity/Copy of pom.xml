@@ -8,6 +8,7 @@
 	<name>study-springsecurity Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<repositories>
+	
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
