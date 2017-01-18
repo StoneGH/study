@@ -24,9 +24,13 @@ public class MyAuthenticationSuccessHandler extends SavedRequestAwareAuthenticat
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException,
 			IOException {
 		// 认证成功后，获取用户信息并添加到session中
-		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-		User user = userService.getUserByName(userDetails.getUsername());
-		request.getSession().setAttribute("user", user);
-		super.onAuthenticationSuccess(request, response, authentication);
+		try {
+			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+			User user = userService.getUserByName(userDetails.getUsername());
+			request.getSession().setAttribute("user", user);
+			super.onAuthenticationSuccess(request, response, authentication);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

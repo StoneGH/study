@@ -12,21 +12,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class User implements UserDetails {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5526392031153737914L;
-
+	private static final long serialVersionUID = -739110967197874283L;
 	private String id;
 	private String username;
 	private String password;
-
-	public User() {
-	}
-
-	public User(String username) {
-		this.username = username;
-	}
 
 	public String getId() {
 		return id;
@@ -53,30 +42,34 @@ public class User implements UserDetails {
 	}
 
 	@Override
+	public String toString() {
+		return "UserInfoVo [username=" + username + ", password=" + password + "]";
+	}
+
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<SimpleGrantedAuthority> authos = new ArrayList<>();
+		/**
+		 * 测试，写死了角色
+		 */
+		List<SimpleGrantedAuthority> authos = new ArrayList<SimpleGrantedAuthority>();
 		SimpleGrantedAuthority sim = new SimpleGrantedAuthority("ROLE_USER");
 		authos.add(sim);
 		return authos;
 	}
 
-	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 
-	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return true;
 	}
 
-	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return true;
 	}
 
-	@Override
 	public boolean isEnabled() {
-		return false;
+		return true;
 	}
+
 }

@@ -8,12 +8,8 @@
 	    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 	     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 	">
-
-	<bean id="myAuthenticationSuccessHandler"
-		class="com.stone.study.web.filter.MyAuthenticationSuccessHandler"></bean>
-
-	<bean id="userDetailService" class="com.stone.study.web.security.UserDetailService"></bean>
-
+	<context:annotation-config />
+	<context:component-scan base-package="com.stone" />
 	<context:property-placeholder location="classpath:config.properties" />
 	<!-- 数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

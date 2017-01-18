@@ -3,6 +3,8 @@ package com.stone.study.web.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,14 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		ModelAndView mv = new ModelAndView("login");
+		return mv;
+
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView logoutPage(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView("login");
+		request.getSession().invalidate();
 		return mv;
 
 	}

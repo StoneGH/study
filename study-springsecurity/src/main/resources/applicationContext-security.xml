@@ -2,27 +2,33 @@
 	xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+						
+<!-- 	<b:bean id="myAuthenticationSuccessHandler" -->
+<!-- 		class="com.stone.study.web.filter.MyAuthenticationSuccessHandler"> -->
+<!-- 		</b:bean> -->
+
+	<!-- 登录页不使用权限控制 -->
 	<http security="none" pattern="/login" />
 	<http auto-config="true" use-expressions="true">
 		<form-login login-page="/login" authentication-failure-url="/login?error"
-			login-processing-url="/login.json"
+			login-processing-url="/login.json" default-target-url="/index"
 			authentication-success-forward-url="/index"
-			always-use-default-target="false" authentication-success-handler-ref="myAuthenticationSuccessHandler" />
-		<!-- 认证成功用自定义类myAuthenticationSuccessHandler处理 -->
-
+			always-use-default-target="true" authentication-success-handler-ref="myAuthenticationSuccessHandler" /><!-- 认证成功用自定义类myAuthenticationSuccessHandler处理 -->
 		<logout logout-url="/logout" logout-success-url="/"
 			invalidate-session="true" delete-cookies="JSESSIONID" />
-
 		<csrf disabled="true" />
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 	</http>
 
-	<!-- 使用自定义类userServiceImpl从数据库获取用户信息 -->
+
+	<!-- 自定义user-service -->
+	<b:bean id="userDetailService" class="com.stone.study.web.security.UserDetailService"></b:bean>
+	<!-- 使用自定义类userDetailService从数据库获取用户信息 -->
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailService">
 			<!-- 加密 -->
-			<password-encoder hash="md5">
-			</password-encoder>
+<!-- 			<password-encoder hash="md5"> -->
+<!-- 			</password-encoder> -->
 		</authentication-provider>
 	</authentication-manager>
 </b:beans>

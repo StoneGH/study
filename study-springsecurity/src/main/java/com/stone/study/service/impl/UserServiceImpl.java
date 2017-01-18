@@ -17,6 +17,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByName(String username) {
-		return new User(username);
+		return null;
 	}
 }
