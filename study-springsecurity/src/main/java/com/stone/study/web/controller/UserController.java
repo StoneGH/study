@@ -43,7 +43,6 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login.json", method = RequestMethod.POST)
-	@ResponseBody
 	public Object loginJson(String username, String password) {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		if (StringUtils.isNullOrEmpty(username) || StringUtils.isNullOrEmpty(password)) {
