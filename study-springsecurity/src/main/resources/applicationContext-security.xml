@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 	<!-- 登录页不使用权限控制 -->
-	<http security="none" pattern="/login" />
+	<http security="none" pattern="/login*" />
 	<http auto-config="true" use-expressions="true">
 		<form-login login-page="/login" authentication-failure-url="/login?error"
 			login-processing-url="/login.json" default-target-url="/index"

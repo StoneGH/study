@@ -80,7 +80,7 @@
 		</dependency>
 		<!-- jxl -->
 
-		<!-- util模块jar�? -->
+		<!-- util模块jar�? -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -97,7 +97,7 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.3.2</version>
 		</dependency>
-		<!-- util模块jar�? -->
+		<!-- util模块jar�? -->
 	</dependencies>
 
 	<modules>
@@ -106,5 +106,6 @@
 		<module>study-java</module>
 		<module>study-springsecurity</module>
     <module>study-algorithm</module>
-  </modules>
+    <module>study-spring</module>
+	</modules>
 </project>

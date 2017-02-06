@@ -9,7 +9,7 @@
 	src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 </head>
 <body>
-	<form id="loginForm" method="post" action="login.json">
+	<form id="loginForm">
 		<table>
 			<tr>
 				<td>用户名：</td>
@@ -27,23 +27,24 @@
 	</form>
 </body>
 <script type="text/javascript">
-// 	$(function() {
-// 		var username = $("#username").val();
-// 		var password = $("#password").val();
-// 		$("#loginBtn").click(function() {
-// 			$.ajax({
-// 				url : "${pageContext.request.contextPath}/login.json",
-// 				type : "post",
-// 				dataType : "json",
-// 				data : {
-// 					"username" : username,
-// 					"password" : password
-// 				},
-// 				success : function(ret) {
-// 					alert(ret.message);
-// 				}
-// 			});
-// 		});
-// 	});
+	$(function() {
+		var username = $("#username").val();
+		var password = $("#password").val();
+		$("#loginForm").submit(function() {
+			$.ajax({
+				url : "${pageContext.request.contextPath}/login.json",
+				type : "post",
+				dataType : "json",
+				// 				data : {
+				// 					"username" : username,
+				// 					"password" : password
+				// 				},
+				data : $("#loginForm").serialize(),
+				success : function(ret) {
+					alert(ret.message);
+				}
+			});
+		});
+	});
 </script>
 </html>

@@ -5,21 +5,29 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mysql.jdbc.StringUtils;
+import com.stone.study.model.User;
 import com.stone.study.service.UserService;
+import com.stone.study.web.security.MyAuthenticationManager;
 
 @Controller
 public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private MyAuthenticationManager myAuthenticationManager;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
@@ -43,15 +51,16 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login.json", method = RequestMethod.POST)
-	public Object loginJson(String username, String password) {
+	@ResponseBody
+	public Object loginJson(User user, HttpServletRequest request) {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		if (StringUtils.isNullOrEmpty(username) || StringUtils.isNullOrEmpty(password)) {
+		if (StringUtils.isNullOrEmpty(user.getUsername()) || StringUtils.isNullOrEmpty(user.getPassword())) {
 			resultMap.put("status", -1);
 			resultMap.put("message", "用户名和密码不能为空");
 			return resultMap;
 		}
 		try {
-			if (userService.login(username, password)) {
+			if (userService.login(user.getUsername(), user.getPassword())) {
 				resultMap.put("status", 1);
 				resultMap.put("message", "登录成功");
 			} else {
