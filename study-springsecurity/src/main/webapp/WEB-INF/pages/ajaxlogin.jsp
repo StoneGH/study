@@ -9,7 +9,7 @@
 	src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 </head>
 <body>
-	<form id="loginForm">
+	<form id="loginForm" action="loginjson" method="post">
 		<table>
 			<tr>
 				<td>用户名：</td>
@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input id="loginBtn"
-					type="submit" value=" 登录 " /> <input type="reset" value=" 重置 " /></td>
+					type="button" value=" 登录 " /> <input type="reset" value=" 重置 " /></td>
 			</tr>
 		</table>
 	</form>
@@ -30,18 +30,17 @@
 	$(function() {
 		var username = $("#username").val();
 		var password = $("#password").val();
-		$("#loginForm").submit(function() {
+		$("#loginBtn").click(function() {
 			$.ajax({
-				url : "${pageContext.request.contextPath}/login.json",
+				url : "${pageContext.request.contextPath}/loginjson",
 				type : "post",
 				dataType : "json",
-				// 				data : {
-				// 					"username" : username,
-				// 					"password" : password
-				// 				},
 				data : $("#loginForm").serialize(),
 				success : function(ret) {
 					alert(ret.message);
+					if("1"==ret.status){
+						window.location.href="${pageContext.request.contextPath}/index";
+					}
 				}
 			});
 		});

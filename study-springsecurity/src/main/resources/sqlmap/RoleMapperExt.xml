@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.stone.study.mapper.RoleMapperExt" />
+<mapper namespace="com.stone.study.mapper.RoleMapperExt">
+	<select id="getUserRoles" resultType="com.stone.study.model.Role">
+		SELECT DISTINCT A.* FROM ROLE A
+		INNER JOIN USER_ROLE_RELATION B ON A.ID = B.ROLE_ID
+		WHERE B.USER_ID = #{uid}
+	</select>
+</mapper>

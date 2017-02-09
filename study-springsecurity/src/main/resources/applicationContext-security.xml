@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 	<!-- 登录页不使用权限控制 -->
-	<http security="none" pattern="/login*" />
+	<http security="none" pattern="/login**" />
 	<http auto-config="true" use-expressions="true">
 		<form-login login-page="/login" authentication-failure-url="/login?error"
-			login-processing-url="/login.json" default-target-url="/index"
+			login-processing-url="/loginjson" default-target-url="/index"
 			authentication-success-forward-url="/index"
 			always-use-default-target="true" authentication-success-handler-ref="myAuthenticationSuccessHandler" /><!-- 
 			认证成功用自定义类myAuthenticationSuccessHandler处理 -->
@@ -18,7 +18,7 @@
 
 
 	<!-- 使用自定义类userDetailService从数据库获取用户信息 -->
-	<authentication-manager>
+	<authentication-manager alias="myAuthenticationManager">
 		<authentication-provider user-service-ref="userDetailService">
 			<!-- 加密 -->
 			<!-- <password-encoder hash="md5"> -->
