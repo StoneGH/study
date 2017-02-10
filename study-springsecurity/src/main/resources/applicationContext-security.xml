@@ -4,6 +4,7 @@
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 	<!-- 登录页不使用权限控制 -->
 	<http security="none" pattern="/login**" />
+	<http security="none" pattern="/resources/**" />
 	<http auto-config="true" use-expressions="true">
 		<form-login login-page="/login" authentication-failure-url="/login?error"
 			login-processing-url="/loginjson" default-target-url="/index"
@@ -13,8 +14,9 @@
 		<logout logout-url="/logout" logout-success-url="/"
 			invalidate-session="true" delete-cookies="JSESSIONID" />
 		<csrf disabled="true" />
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		<custom-filter ref="myFilterSecurityInterceptor" />
 	</http>
+
 
 
 	<!-- 使用自定义类userDetailService从数据库获取用户信息 -->
