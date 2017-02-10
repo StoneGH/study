@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-01-19 15:50:05
+Date: 2017-02-10 17:50:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,6 +21,7 @@ DROP TABLE IF EXISTS `func`;
 CREATE TABLE `func` (
   `id` varchar(50) NOT NULL COMMENT '功能编号',
   `name` varchar(30) NOT NULL COMMENT '功能名称',
+  `url` varchar(255) DEFAULT NULL,
   `remark` varchar(200) DEFAULT NULL,
   `flag` varchar(2) NOT NULL COMMENT '删除标记',
   PRIMARY KEY (`id`)
@@ -29,6 +30,7 @@ CREATE TABLE `func` (
 -- ----------------------------
 -- Records of func
 -- ----------------------------
+INSERT INTO func VALUES ('1', '欢迎页', '/index', null, '1');
 
 -- ----------------------------
 -- Table structure for `role`
@@ -45,6 +47,8 @@ CREATE TABLE `role` (
 -- ----------------------------
 -- Records of role
 -- ----------------------------
+INSERT INTO role VALUES ('1', '管理员', '系统管理员', '1');
+INSERT INTO role VALUES ('2', '统计员', '数据统计员', '1');
 
 -- ----------------------------
 -- Table structure for `role_func_relation`
@@ -55,11 +59,12 @@ CREATE TABLE `role_func_relation` (
   `role_id` varchar(50) NOT NULL COMMENT '角色编号',
   `func_id` varchar(50) NOT NULL COMMENT '功能编号',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of role_func_relation
 -- ----------------------------
+INSERT INTO role_func_relation VALUES ('1', '管理员', '1');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -87,8 +92,10 @@ CREATE TABLE `user_role_relation` (
   `user_id` varchar(50) NOT NULL COMMENT '用户编号',
   `role_id` varchar(50) NOT NULL COMMENT '角色编号',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_role_relation
 -- ----------------------------
+INSERT INTO user_role_relation VALUES ('1', '1', '1');
+INSERT INTO user_role_relation VALUES ('2', '1', '2');
