@@ -19,45 +19,67 @@
 	src="http://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
 <script type="text/javascript"
 	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+.container {
+	width: 540px !important;
+}
+
+form .form-group input {
+	height: 40px;
+}
+
+.vcimg {
+	border: none;
+	font-size: 24px;
+	background: #ccc;
+	text-align: center;
+	color: #666;
+	width: 100%;
+}
+</style>
 <body>
 	<div class="container">
-		<header> </header>
-		<div id="container_demo">
-			<div id="wrapper">
-				<div id="login" class="animate form">
-					<!--			 <form name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'> -->
-					<h1>电信融合支付平台</h1>
-					<form id='loginForm' method="POST">
-						<p>
-							<label for="" class="uname" data-icon="u"> 用户名 </label> <input
-								id="username" name="username" required="required" type="text"
-								placeholder="myusername or mymail@mail.com">
-						</p>
-						<p>
-							<label for="" class="youpasswd" data-icon="p"> 密码 </label> <input
-								id="password" name="password" required="required"
-								type="password" placeholder="eg. X8df!90EO">
-						</p>
-						<p>
-							<label for="verification" class="verification" data-icon="v">
-								验证 </label> <img src="index" id="verify" align="middle" title="看不清，请点我"
-								style="cursor: hand;" /><br /> <input type="verification"
-								id="verifyCode" name="verifyCode" placeholder="验证码"
-								required="required">
-						</p>
-						<!-- 
-								<p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping"> 
-									<label for="loginkeeping">保持登录</label>
-								</p>
-								 -->
-						<p class="login button">
-							<input type="submit" id="submitId" value="登录">
-						</p>
-					</form>
+		<h1 class="text-center">SpringSecurity Demo</h1>
+		<form id="loginForm" class="form-horizontal">
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="username"
+						name="username" placeholder="请输入用户名" required="required">
 				</div>
 			</div>
-		</div>
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" id="password"
+						name="password" placeholder="请输入密码" required="required">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="verifyCode"
+						name="verifyCode" placeholder="请输入验证码" required="required">
+				</div>
+				<div class="col-sm-6">
+					<input class="vcimg" type="text" value="1231" readonly="readonly" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="checkbox">
+						<label> <input type="checkbox"> 记住密码
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Sign in</button>
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 
 <script type="text/javascript">
@@ -86,18 +108,7 @@
 											if (result.status == "1") {
 												location.href = "${pageContext.request.contextPath}/index";
 											} else {
-												$(".error").remove();
-												$("#loginForm")
-														.prepend(
-																"<div class='error'><font color='red'>"
-																		+ result.msg
-																		+ "</font></div>");
-												$("#verify")
-														.attr(
-																"src",
-																"/upsweb/index?timestamp="
-																		+ new Date()
-																				.getTime()); // 刷新验证码
+												showErrInfo(result.msg);
 											}
 										},
 										error : function(XMLHttpRequest,
@@ -119,6 +130,14 @@
 				});
 
 	});
+
+	function showErrInfo(msg) {
+		$(".error").remove();
+		$("#loginForm")
+				.prepend(
+						"<div class='error'><font color='red'>" + msg
+								+ "</font></div>");
+	}
 
 	$(function() {
 		$("#dd").popover();
