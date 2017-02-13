@@ -9,22 +9,38 @@
 		<form-login login-page="/login" authentication-failure-url="/login?error"
 			login-processing-url="/loginjson" default-target-url="/index"
 			authentication-success-forward-url="/index"
-			always-use-default-target="true" authentication-success-handler-ref="myAuthenticationSuccessHandler" /><!-- 
-			认证成功用自定义类myAuthenticationSuccessHandler处理 -->
+			always-use-default-target="true" />
 		<logout logout-url="/logout" logout-success-url="/"
 			invalidate-session="true" delete-cookies="JSESSIONID" />
-		<csrf disabled="true" />
-		<custom-filter ref="myFilterSecurityInterceptor" />
+		<!-- 增加一个filter，这点与Acegi是不一样的，不能修改默认的filter了，这个filter位于FILTER_SECURITY_INTERCEPTOR之前 -->
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="myFilter" />
 	</http>
 
+	<!-- 一个自定义的filter，必须包含authenticationManager,accessDecisionManager,securityMetadataSource三个属性， 
+		我们的所有控制将在这三个类中实现，解释详见具体配置 -->
+	<b:bean id="myFilter"
+		class="com.stone.study.web.security.MyFilterSecurityInterceptor">
+		<b:property name="authenticationManager" ref="myAuthenticationManager"></b:property>
+		<b:property name="accessDecisionManager" ref="myAccessDecisionManager"></b:property>
+		<b:property name="securityMetadataSource" ref="myInvocationSecurityMetadataSource"></b:property>
+	</b:bean>
 
-
-	<!-- 使用自定义类userDetailService从数据库获取用户信息 -->
+	<!-- 认证管理器，实现用户认证的入口，主要实现UserDetailsService接口即可 -->
 	<authentication-manager alias="myAuthenticationManager">
 		<authentication-provider user-service-ref="userDetailService">
-			<!-- 加密 -->
-			<!-- <password-encoder hash="md5"> -->
-			<!-- </password-encoder> -->
+			<!-- 如果用户的密码采用加密的话，可以加点“盐” <password-encoder hash="md5" /> -->
 		</authentication-provider>
 	</authentication-manager>
+
+	<b:bean id="userDetailService" class="com.stone.study.web.security.UserDetailService"></b:bean>
+
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
+	<b:bean id="myAccessDecisionManager"
+		class="com.stone.study.web.security.MyAccessDecisionManager"></b:bean>
+
+	<!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->
+	<b:bean id="myInvocationSecurityMetadataSource"
+		class="com.stone.study.web.security.MyInvocationSecurityMetadataSource"></b:bean>
+
+
 </b:beans>

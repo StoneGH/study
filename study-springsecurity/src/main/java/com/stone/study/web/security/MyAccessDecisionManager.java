@@ -13,10 +13,10 @@ import org.springframework.security.core.GrantedAuthority;
 /**
  * 验证资源跟角色之间的关系
  * 
- * @author Administrator
+ * @author Stone+
  * 
  */
-public class AccessDecisionManagerImpl implements AccessDecisionManager {
+public class MyAccessDecisionManager implements AccessDecisionManager {
 
 	@Override
 	public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException,
