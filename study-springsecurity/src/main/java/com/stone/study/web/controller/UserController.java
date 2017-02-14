@@ -39,8 +39,20 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
+	public ModelAndView indexPage() {
 		ModelAndView model = new ModelAndView("index");
+		return model;
+	}
+
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public ModelAndView adminPage() {
+		ModelAndView model = new ModelAndView("admin");
+		return model;
+	}
+
+	@RequestMapping(value = "/data", method = RequestMethod.GET)
+	public ModelAndView dataPage() {
+		ModelAndView model = new ModelAndView("data");
 		return model;
 	}
 
