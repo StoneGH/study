@@ -24,6 +24,9 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor imp
 
 	}
 
+	/**
+	 * 登陆后，每次访问资源都通过这个拦截器拦截
+	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		FilterInvocation fi = new FilterInvocation(request, response, chain);

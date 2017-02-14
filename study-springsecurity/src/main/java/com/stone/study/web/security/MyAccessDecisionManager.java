@@ -11,7 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
- * 验证资源跟角色之间的关系
+ * 授权器，通过登录用户的权限信息、资源、获取资源所需的权限来根据不同的授权策略来判断用户是否有权限访问资源。
  * 
  * @author Stone+
  * 
@@ -21,6 +21,10 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
 	@Override
 	public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException,
 			InsufficientAuthenticationException {
+		// 检查用户是否够权限访问资源
+		// 参数authentication是从spring的全局缓存SecurityContextHolder中拿到的，里面是用户的权限信息
+		// 参数object是url
+		// 参数configAttributes所需的权限
 		if (null == configAttributes) {
 			return;
 		}

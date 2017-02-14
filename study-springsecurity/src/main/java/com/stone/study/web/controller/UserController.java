@@ -38,14 +38,6 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public ModelAndView logoutPage(HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView("login");
-		request.getSession().invalidate();
-		return mv;
-
-	}
-
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 		ModelAndView model = new ModelAndView("index");
