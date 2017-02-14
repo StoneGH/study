@@ -5,6 +5,6 @@
 <html>
 <body>
 	<h1>数据页</h1>
-	<a href="javascript:history.back();">返回</a>
+	<a href="javascript:history.back();">返 回</a>
 </body>
 </html>
