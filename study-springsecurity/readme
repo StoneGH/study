@@ -1,3 +1,14 @@
+架构：spring+springmvc+springsecurity+mybatis+mysql+maven
+描述：springsecurity集成springmvc，自定义登录页面，使用mysql数据库认证登录用户，根据用户角色控制授权访问资源。启动项目http://[server]:[port]/[project],进入登录页面，数据表USER中有2个用户（用户名/密码[admin/admin,user01/user01]）,admin用户拥有管理员角色，允许访问首页和管理页，user01用户拥有数据管理权限，允许访问首页和数据页。
 参考：
+http://docs.spring.io/spring-security/site/docs/current/guides/html5/
 http://www.importnew.com/20612.html
 http://www.cnblogs.com/fenglan/category/887982.html
+
+Github地址：
+	https://github.com/StoneGH/study/tree/master/study-springsecurity
+
+CSDN地址：
+	http://download.csdn.net/detail/stone520520/9754786
+
+技术交流QQ群：178552702

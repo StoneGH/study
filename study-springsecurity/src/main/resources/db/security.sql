@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-02-10 17:50:51
+Date: 2017-02-15 10:46:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,9 @@ CREATE TABLE `func` (
 -- ----------------------------
 -- Records of func
 -- ----------------------------
-INSERT INTO func VALUES ('1', '欢迎页', '/index', null, '1');
+INSERT INTO func VALUES ('1', '管理页', '/admin', null, '1');
+INSERT INTO func VALUES ('2', '报表页', '/data', null, '1');
+INSERT INTO func VALUES ('3', '欢迎页', '/index', null, '1');
 
 -- ----------------------------
 -- Table structure for `role`
@@ -59,12 +61,15 @@ CREATE TABLE `role_func_relation` (
   `role_id` varchar(50) NOT NULL COMMENT '角色编号',
   `func_id` varchar(50) NOT NULL COMMENT '功能编号',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of role_func_relation
 -- ----------------------------
-INSERT INTO role_func_relation VALUES ('1', '管理员', '1');
+INSERT INTO role_func_relation VALUES ('1', '1', '1');
+INSERT INTO role_func_relation VALUES ('2', '2', '2');
+INSERT INTO role_func_relation VALUES ('3', '1', '3');
+INSERT INTO role_func_relation VALUES ('4', '2', '3');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -82,6 +87,7 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO user VALUES ('1', 'admin', 'admin', '1');
+INSERT INTO user VALUES ('2', 'user01', 'user01', '1');
 
 -- ----------------------------
 -- Table structure for `user_role_relation`
@@ -92,10 +98,10 @@ CREATE TABLE `user_role_relation` (
   `user_id` varchar(50) NOT NULL COMMENT '用户编号',
   `role_id` varchar(50) NOT NULL COMMENT '角色编号',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_role_relation
 -- ----------------------------
 INSERT INTO user_role_relation VALUES ('1', '1', '1');
-INSERT INTO user_role_relation VALUES ('2', '1', '2');
+INSERT INTO user_role_relation VALUES ('2', '2', '2');

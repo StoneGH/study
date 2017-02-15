@@ -45,10 +45,15 @@ public class MyInvocationSecurityMetadataSource implements FilterInvocationSecur
 		resourceMap = new HashMap<String, Collection<ConfigAttribute>>();
 		List<RoleFuncResource> resources = resourceService.getRoleFuncRelation();
 		for (RoleFuncResource resource : resources) {
-			Collection<ConfigAttribute> atts = new ArrayList<ConfigAttribute>();
+			Collection<ConfigAttribute> atts = resourceMap.get(resource.getUrl());
 			ConfigAttribute ca = new SecurityConfig(resource.getRole());
-			atts.add(ca);
-			resourceMap.put(resource.getUrl(), atts);
+			if (atts == null) {
+				atts = new ArrayList<ConfigAttribute>();
+				atts.add(ca);
+				resourceMap.put(resource.getUrl(), atts);
+			} else {
+				atts.add(ca);
+			}
 		}
 	}
 
