@@ -48,6 +48,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-web</artifactId> -->
+<!-- 			<version>${org.springframework-version}</version> -->
+<!-- 		</dependency> -->
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -183,8 +188,43 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.2.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>security</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.34</version>
+					</dependency>
+					<dependency>
+						<groupId>com.stone.mybatis</groupId>
+						<artifactId>mybatis-page-plugin</artifactId>
+						<version>1.0</version>
+						<scope>system</scope>
+						<systemPath>${project.basedir}/src/lib/mybatis-page-plugin.jar</systemPath>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<!--允许移动生成的文件 -->
+					<verbose>true</verbose>
+					<!--允许覆盖生成的文件 -->
+					<overwrite>true</overwrite>
+					<configurationFile>${project.basedir}/src/main/resources/generateConfig.xml</configurationFile>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>

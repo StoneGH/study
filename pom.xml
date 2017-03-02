@@ -106,6 +106,5 @@
 		<module>study-java</module>
 		<module>study-springsecurity</module>
     <module>study-algorithm</module>
-		<module>study-ssh</module>
-	</modules>
+  </modules>
 </project>
