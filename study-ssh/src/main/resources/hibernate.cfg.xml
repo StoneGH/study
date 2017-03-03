@@ -7,7 +7,6 @@
     <property name="connection.url">jdbc:mysql://localhost:3306/test</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <mapping class="com.study.ssh.entity.User"/>
-    <mapping resource="mapper.xml"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
