@@ -55,7 +55,7 @@
                 "extn": "8422"
             }
         ];
-        $('#table_id').DataTable({
+        var datatables = $('#table_id').DataTable({
             data: datas,
             columns: [
                 {data: null},
@@ -73,7 +73,10 @@
                 }
             }]
         });
-
+        $("#table_id tbody").on('click', 'tr', function () {
+            var d = datatables.row(this).data();
+            alert(d.position);
+        });
     });
 </script>
 </body>
