@@ -1,10 +1,6 @@
 (function ($) {
-    $.fn.extend({
-        "bold": function () {
-            ///<summary>
-            /// 加粗字体
-            ///</summary>
-            return this.css({fontWeight: "bold"});
-        }
-    });
+    $.fn.alert = function(){
+        alert(2);
+        return $(this);
+    };
 })(jQuery);

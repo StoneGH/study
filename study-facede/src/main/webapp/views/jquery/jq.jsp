@@ -14,19 +14,10 @@
 <body>
 <h3>jquery插件</h3>
 <div>123123</div>
-<%--<script type="text/javascript" src="${ctx}/resources/plugins/jquery/jp.js"/>--%>
+<script type="text/javascript" src="${ctx}/resources/plugins/jquery/jp.js"></script>
 <script type="text/javascript">
     $(function () {
-        if (jQuery) {
-
-            alert("jQuery library is loaded!");
-
-        } else {
-
-            alert("jQuery library is not found!");
-
-        }
-        $("div").bold();
+        $("div").alert();
     });
 </script>
 </body>
