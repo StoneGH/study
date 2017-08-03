@@ -5,10 +5,10 @@ package org.study.java.datatype;
  */
 public class DataType {
     public static void main(String[] args) {
-        byte i = Byte.MAX_VALUE;
-        System.out.println(Character.MIN_VALUE);
-        float j = 123.f;
-        boolean s = "".equals("");
-        Integer.valueOf("");
+        int sum = 11;
+        double avg = (double)sum / 5;
+        double avg1 = sum / 5;
+        System.out.println(avg);
+        System.out.println(avg1);
     }
 }

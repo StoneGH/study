@@ -1,7 +1,7 @@
 package com.stone.email.util;
 
 public class EmailTest {
-    public void send() {
+    public static void main(String[] args) {
         MailSendInfo mailInfo = new MailSendInfo();
         mailInfo.attachFile("C:\\Users\\Administrator\\Desktop\\template.xlsx");
         // mailInfo.setMailServicerHost("smtp.qq.com");

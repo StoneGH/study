@@ -107,5 +107,6 @@
 		<module>study-springsecurity</module>
     <module>study-algorithm</module>
 		<module>study-facede</module>
-	</modules>
+        <module>study-springboot</module>
+    </modules>
 </project>
