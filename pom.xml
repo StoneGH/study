@@ -111,6 +111,5 @@
         <module>study-crack</module>
         <module>study-test</module>
         <module>study-springboot</module>
-        <module>study-springboot</module>
     </modules>
 </project>
