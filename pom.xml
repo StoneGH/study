@@ -109,5 +109,8 @@
         <module>study-algorithm</module>
         <module>study-facede</module>
         <module>study-crack</module>
+        <module>study-test</module>
+        <module>study-springboot</module>
+        <module>study-springboot</module>
     </modules>
 </project>
