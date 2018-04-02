@@ -105,11 +105,9 @@
         <module>study-email</module>
         <module>study-util</module>
         <module>study-java</module>
-        <module>study-springsecurity</module>
         <module>study-algorithm</module>
         <module>study-facede</module>
         <module>study-crack</module>
         <module>study-test</module>
-        <module>study-springboot</module>
     </modules>
 </project>
