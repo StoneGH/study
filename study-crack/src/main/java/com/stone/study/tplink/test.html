@@ -20,11 +20,11 @@
         e = f > g ? f : g;
         for (var l = 0; l < e; l++)
             m = k = 187,
-                    l >= f ? m = c.charCodeAt(l) :
-                            l >= g ? k = a.charCodeAt(l) :
-                                    (k = a.charCodeAt(l),
-                                            m = c.charCodeAt(l)),
-                    d += b.charAt((k ^ m) % h);
+                l >= f ? m = c.charCodeAt(l) :
+                    l >= g ? k = a.charCodeAt(l) :
+                        (k = a.charCodeAt(l),
+                            m = c.charCodeAt(l)),
+                d += b.charAt((k ^ m) % h);
         return d;
     }
     ;

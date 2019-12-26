@@ -1,10 +1,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<bean id="springHelloWorld" class="com.stone.study.spring.helloworld.impl.SpringHelloWorld"></bean>
-	<bean id="strutsHelloWorld" class="com.stone.study.spring.helloworld.impl.StrutsHelloWorld"></bean>
-	<bean id="helloWorldService" class="com.stone.study.spring.helloworld.HelloWorldService">
-		<property name="helloWorld" ref="springHelloWorld"></property>
-	</bean>
+    <bean id="springHelloWorld" class="com.stone.study.spring.helloworld.impl.SpringHelloWorld"></bean>
+    <bean id="strutsHelloWorld" class="com.stone.study.spring.helloworld.impl.StrutsHelloWorld"></bean>
+    <bean id="helloWorldService" class="com.stone.study.spring.helloworld.HelloWorldService">
+        <property name="helloWorld" ref="springHelloWorld"></property>
+    </bean>
 </beans>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.stone.study.mapper.UserMapperExt">
-	<select id="findByUname">
-		<![CDATA[
+    <select id="findByUname">
+        <![CDATA[
 		SELECT * FROM `USER` A
 		LEFT JOIN USER_ROLE_RELATION B ON A.ID = B.USER_ID
 		LEFT JOIN ROLE_FUNC_RELATION C ON B.ROLE_ID = C.FUNC_ID
 		WHERE A.USERNAME = #{uname}
 		]]>
-	</select>
+    </select>
 </mapper>

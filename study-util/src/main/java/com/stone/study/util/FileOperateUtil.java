@@ -28,7 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 
  * <p>
  * Class Name: FileOperateUtil
  * </p>
@@ -51,17 +50,16 @@ import org.apache.commons.lang3.StringUtils;
 public class FileOperateUtil {
 
     /**
-     * 
      * 描述:java.util.zip.ZipOutputStream压缩多个文件为一个ZIP 不支持中文
-     * 
+     *
      * @param sourceFilesPath
      * @param fileName
      * @param compressFilePath
-     * @author 石涛 date 2014-9-19
-     *         -------------------------------------------------- 修改人 修改日期 修改描述
-     *         石涛 2014-9-19 创建
-     *         --------------------------------------------------
      * @throws FileNotFoundException
+     * @author 石涛 date 2014-9-19
+     * -------------------------------------------------- 修改人 修改日期 修改描述
+     * 石涛 2014-9-19 创建
+     * --------------------------------------------------
      * @Version Ver1.0
      */
     public static void compressFilesToZip(String[] sourceFilesPath, String fileName, String compressFilePath) throws FileNotFoundException {
@@ -92,17 +90,16 @@ public class FileOperateUtil {
     }
 
     /**
-     * 
      * 描述: org.apache.tools.zip.ZipOutputStream压缩多个文件为一个ZIP 支持中文
-     * 
+     *
      * @param sourceFilesPath
      * @param fileName
      * @param compressFilePath
      * @throws FileNotFoundException
      * @author 石涛 date 2014-9-19
-     *         -------------------------------------------------- 修改人 修改日期 修改描述
-     *         石涛 2014-9-19 创建
-     *         --------------------------------------------------
+     * -------------------------------------------------- 修改人 修改日期 修改描述
+     * 石涛 2014-9-19 创建
+     * --------------------------------------------------
      * @Version Ver1.0
      */
     public static void apacheCompressFilesToZip(String[] sourceFilesPath, String fileName, String compressFilePath) {
@@ -132,15 +129,14 @@ public class FileOperateUtil {
     }
 
     /**
-     * 
      * 描述:java.util.zip.ZipOutputStream解压文件
-     * 
+     *
      * @param compressPageDir
      * @param uncompressDir
      * @author 石涛 date 2014-9-19
-     *         -------------------------------------------------- 修改人 修改日期 修改描述
-     *         石涛 2014-9-19 创建
-     *         --------------------------------------------------
+     * -------------------------------------------------- 修改人 修改日期 修改描述
+     * 石涛 2014-9-19 创建
+     * --------------------------------------------------
      * @Version Ver1.0
      */
     public static void decompressZipToFiles(String compressPageDir, String decompressDir) {
@@ -178,10 +174,9 @@ public class FileOperateUtil {
     }
 
     /**
-     * @description: 下载远程图片
-     * @param imgurl
-     *            图片地址
+     * @param imgurl 图片地址
      * @return OutputStream
+     * @description: 下载远程图片
      * @author 石涛
      * @date 2014-10-31
      * @-- ------------------------------------------------
@@ -222,13 +217,10 @@ public class FileOperateUtil {
     }
 
     /**
+     * @param pictureDir       图片文件地址
+     * @param hideFileDir      图片下隐藏的文件地址
+     * @param targetPictureDir 最终文件地址
      * @description: 图片下隐藏文件
-     * @param pictureDir
-     *            图片文件地址
-     * @param hideFileDir
-     *            图片下隐藏的文件地址
-     * @param targetPictureDir
-     *            最终文件地址
      * @author 石涛
      * @date 2014-10-31
      * @-- ------------------------------------------------
@@ -251,7 +243,7 @@ public class FileOperateUtil {
 
     /**
      * 图片压缩
-     * 
+     *
      * @param srcFilePath
      * @param descFilePath
      * @return
@@ -312,7 +304,7 @@ public class FileOperateUtil {
      * application/msword word文档(.doc)<br/>
      * application/vnd.ms-excel excel文档(.xls)<br/>
      * audio/x-mpeg mp3音乐文件(.mp3)<br/>
-     * 
+     *
      * @param filePath
      * @param response
      * @throws Exception

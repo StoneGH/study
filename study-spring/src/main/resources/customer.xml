@@ -1,35 +1,35 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<bean id="customerService" class="com.stone.study.spring.aop.customer.CustomerService">
-		<property name="name" value="Stone"></property>
-		<property name="url" value="http://www.bzdnet.com"></property>
-	</bean>
-	<bean id="hiJackBeforeMethod" class="com.stone.study.spring.aop.customer.HiJackBeforeMethod"></bean>
-	<bean id="customerServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="customerService"></property>
-		<property name="interceptorNames">
-			<list>
-				<value>hiJackBeforeMethod</value>
-			</list>
-		</property>
-	</bean>
-	<bean id="customerYiibaicut"
-		class="com.stone.study.spring.aop.customer.NameMatchMethodYiibaicut">
-		<property name="mappedName" value="printName"></property>
-	</bean>
-	<bean id="customerAdvisor"
-		class="com.stone.study.spring.aop.customer.DefaultYiibaicutAdvisor">
-		<property name="pointcut" ref="customerAdvisor"></property>
-		<property name="advice" ref="hiJackBeforeMethod"></property>
-	</bean>
-	<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="customerService"></property>
-		<property name="interceptorNames">
-			<list>
-				<value>customerAdvisor</value>
-			</list>
-		</property>
-	</bean>
+    <bean id="customerService" class="com.stone.study.spring.aop.customer.CustomerService">
+        <property name="name" value="Stone"></property>
+        <property name="url" value="http://www.bzdnet.com"></property>
+    </bean>
+    <bean id="hiJackBeforeMethod" class="com.stone.study.spring.aop.customer.HiJackBeforeMethod"></bean>
+    <bean id="customerServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="customerService"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>hiJackBeforeMethod</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="customerYiibaicut"
+          class="com.stone.study.spring.aop.customer.NameMatchMethodYiibaicut">
+        <property name="mappedName" value="printName"></property>
+    </bean>
+    <bean id="customerAdvisor"
+          class="com.stone.study.spring.aop.customer.DefaultYiibaicutAdvisor">
+        <property name="pointcut" ref="customerAdvisor"></property>
+        <property name="advice" ref="hiJackBeforeMethod"></property>
+    </bean>
+    <bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="customerService"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>customerAdvisor</value>
+            </list>
+        </property>
+    </bean>
 </beans>

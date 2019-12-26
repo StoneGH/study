@@ -27,12 +27,17 @@
     //        }
     //    })(jQuery);
     $(function () {
-<<<<<<< Updated upstream:study-facede/src/main/webapp/views/jquery/jq.jsp
+    <<<<<<<
+        Updated
+        upstream:study - facede / src / main / webapp / views / jquery / jq.jsp
         $("div").alert();
-=======
+    ======
+        =
 //        alert(1);
-        $("body").alert();
->>>>>>> Stashed changes:study-facede/src/main/webapp/views/jquery/jp.jsp
+            $("body").alert();
+    >>>>>>>
+        Stashed
+        changes:study - facede / src / main / webapp / views / jquery / jp.jsp
     });
 
 </script>

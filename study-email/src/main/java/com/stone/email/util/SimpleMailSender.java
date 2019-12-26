@@ -40,9 +40,9 @@ import javax.mail.internet.MimeMultipart;
 public class SimpleMailSender {
 
     /**
-     * @description: 发送文本邮件
      * @param mailInfo
      * @return
+     * @description: 发送文本邮件
      * @author 石涛
      * @date 2014-11-27
      * @-- ------------------------------------------------
@@ -88,9 +88,9 @@ public class SimpleMailSender {
     }
 
     /**
-     * @description:发送HTML邮件，并且带附件
      * @param mailInfo
      * @return
+     * @description:发送HTML邮件，并且带附件
      * @author 石涛
      * @date 2014-11-27
      * @-- ------------------------------------------------

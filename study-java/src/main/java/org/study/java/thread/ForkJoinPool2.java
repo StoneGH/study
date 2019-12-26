@@ -9,7 +9,7 @@ import java.util.concurrent.RecursiveTask;
 public class ForkJoinPool2 extends RecursiveTask<Integer> {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 7976676204723621499L;
 
