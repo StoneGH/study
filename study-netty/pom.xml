@@ -46,7 +46,7 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-codec</artifactId>
-            <version>RELEASE</version>
+            <version>4.1.68.Final</version>
             <scope>test</scope>
         </dependency>
 
