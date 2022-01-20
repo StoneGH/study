@@ -21,7 +21,7 @@
         <javax.servlet.version>2.5</javax.servlet.version>
         <javax.servletJsp.version>2.1</javax.servletJsp.version>
         <jstl.version>1.2</jstl.version>
-        <spring.version>4.2.1.RELEASE</spring.version>
+        <spring.version>5.2.2.RELEASE</spring.version>
         <commons-lang3.version>3.1</commons-lang3.version>
     </properties>
 
