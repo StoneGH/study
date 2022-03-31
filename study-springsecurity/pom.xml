@@ -18,7 +18,7 @@
         </repository>
     </repositories>
     <properties>
-        <org.springframework-version>4.2.1.RELEASE</org.springframework-version>
+        <org.springframework-version>5.3.18</org.springframework-version>
         <org.mabatis-version>3.2.8</org.mabatis-version>
         <org.springframework.security-version>4.2.1.RELEASE</org.springframework.security-version>
         <org.aspectj-version>1.8.1</org.aspectj-version>
