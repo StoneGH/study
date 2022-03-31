@@ -50,7 +50,7 @@
         <dependency>
             <artifactId>spring-beans</artifactId>
             <groupId>org.springframework</groupId>
-            <version>4.2.4.RELEASE</version>
+            <version>5.3.18</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
         <dependency>
